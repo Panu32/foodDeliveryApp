@@ -15,10 +15,12 @@ const port = process.env.PORT || 4000;
 app.use(express.json());
 app.use(cors());
 
+
 // DB connection
 connectDB();
 // api endpoint
 app.use("/api/food",foodRouter)
+app.use("/images",express.static('uploads'))
 
 // Routes
 app.get("/", (req, res) => {
