@@ -4,7 +4,7 @@ import { menu_list } from '../../assets/assets/frontend_assets/assets';
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (
-    <div className='explore-menu'>
+    <div className='explore-menu' id='explore-menu'>
       <h1>Explore our menu</h1>
       <p className='explore-menu-text'>
         Choose from a diverse menu featuring a <strong>delectable</strong> array of dishes. Our mission is to satisfy your cravings and elevate your dining experience, one <strong>delicious</strong> meal at a time.
