@@ -1,11 +1,12 @@
-import React, { useState } from 'react'; 
+import React, { useContext, useState } from 'react'; 
 import './Navbar.css';
 import { assets } from '../../assets/assets/frontend_assets/assets.js';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext.jsx';
 
 const Navbar = ({ setShowlogin }) => { // Destructure setShowlogin prop
   const [menu, setMenu] = useState("menu");
-
+  const {token,setToken} = useContext(StoreContext);
   return (
     <div className='navbar'>
       <img src={assets.logo} alt="logo" className='logo' />
@@ -21,7 +22,18 @@ const Navbar = ({ setShowlogin }) => { // Destructure setShowlogin prop
           <img src={assets.basket_icon} alt="basket" />
           <div className="dot"></div>
         </div>
-        <button onClick={() => setShowlogin(true)}>sign in</button>
+        {!token?<button onClick={() => setShowlogin(true)}>sign in</button>
+        :<div className='navbar-profile'>
+                     <img src={assets.profile_icon} alt="" />
+                     <ul className="nav-profile-dropdown">
+                       <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                       <hr />
+                       <li><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+                     </ul>
+
+         </div>
+        }
+        
       </div>
     </div>
   );
