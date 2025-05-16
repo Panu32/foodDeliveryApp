@@ -9,7 +9,7 @@ const Navbar = ({ setShowlogin }) => { // Destructure setShowlogin prop
   const {token,setToken} = useContext(StoreContext);
   return (
     <div className='navbar'>
-      <img src={assets.logo} alt="logo" className='logo' />
+      <Link to='/'><img src={assets.logo} alt="logo" className='logo' /></Link>
       <ul className='navbar-menu'>
         <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>home</Link>
         <Link to='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>menu</Link>
@@ -19,7 +19,7 @@ const Navbar = ({ setShowlogin }) => { // Destructure setShowlogin prop
       <div className="navbar-right">
         <img src={assets.search_icon} alt="search" />
         <div className="navbar-search-icon">
-          <img src={assets.basket_icon} alt="basket" />
+          <Link to ='/cart'><img src={assets.basket_icon} alt="basket" /></Link>
           <div className="dot"></div>
         </div>
         {!token?<button onClick={() => setShowlogin(true)}>sign in</button>
