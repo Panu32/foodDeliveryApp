@@ -1,12 +1,13 @@
 
-.header{
+.header {
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
+    background: url('/foodHomepage.jpg') no-repeat center;
+    background-size: cover;
     position: relative;
-    
-}   
+}
+
+ 
 .header-contents{
     position: absolute;
     display:flex;
