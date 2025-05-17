@@ -7,6 +7,7 @@
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     color: grey;
     font-size: max(1vw,12px);
+    align-items: center;
 
 }
 
