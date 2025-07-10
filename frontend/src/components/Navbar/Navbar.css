@@ -25,8 +25,8 @@
 }
 .navbar button {
     background: transparent;
-    background-color: black;
-    font-size: 18px;
+    background-color: brown;
+    font-size: 16px;
     color: white; /* ✅ White text */
     border: 1px solid white; /* Optional: white border to match */
     padding: 10px 30px;

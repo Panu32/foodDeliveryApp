@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:black;
+    color:brown;
 
 }
 .login-popup-title img{
@@ -48,7 +48,7 @@
     padding: 10px;
     border-radius: 4px;
     color: white;
-    background-color: rgb(5, 4, 4);
+    background-color:brown;
     font-size: 15px;
     cursor: pointer;
 }
@@ -62,7 +62,7 @@
     margin-top: 5px;
 }
 .login-popup p span{
-    color: rgb(20, 20, 20);
+    color:brown;
     font-weight: 500;
     cursor: pointer;
 }
