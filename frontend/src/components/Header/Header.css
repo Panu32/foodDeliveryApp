@@ -1,69 +1,77 @@
-
 .header {
     height: 34vw;
     margin: 30px auto;
     background: url('/foodHomepage.jpg') no-repeat center;
     background-size: cover;
     position: relative;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
- 
-.header-contents{
+.header-contents {
     position: absolute;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 1.5vw;
     max-width: 50%;
-    bottom:10px;
-    left:6vw;
-    
-    
+    bottom: 10px;
+    left: 4vw;
+    color: #ffffff;
 }
 
-.header-contents h2{
-    font-weight: 500;
-    color:white;
-    font-size:max(4.5vw,22px);
-    animation: fadeIn 3s;
+.header-contents h2 {
+    font-weight: 700;
+    font-size: max(4.8vw, 28px);
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.header-contents p{
-    color:white;
-    font-size: 1vw ;
+.header span {
+    color: #ff4d4d; /* Brighter red for 'food' */
 }
 
-.header-contents button{
-    border:none;
-    color: #747474;
-    font-weight: 500;
-    padding:1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw,13px) ;
+.header-contents p {
+    font-size: 1.1vw;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.header-contents button {
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 1vw 2.5vw;
+    background-color: #ff4d4d;
+    font-size: max(1vw, 14px);
     border-radius: 50px;
-
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
 }
-@media (max-width:1050px){
-   
-    .header-contents{
-        max-width: 45%;
+
+.header-contents button:hover {
+    background-color: #e84343;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1050px) {
+    .header-contents {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 750px) {
+    .header-contents {
+        max-width: 90%;
     }
 
-}
-@media (max-width:750px){
-   
-    .header-contents{
-        max-width: 65%;
+    .header-contents p {
+        display: none;
     }
-    .header-contents p{
-      display: none;
-     }
-     .header-contents button{
+
+    .header-contents button {
         padding: 2vw 4vw;
-
-     }
-    
-}
-.header span{
-    color: brown;
+    }
 }
