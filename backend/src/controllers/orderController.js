@@ -90,14 +90,14 @@ const userOrders = async (req, res) => {
 
 }
 
-const listOrders = async (req, res) => {
+const   listOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({});
+        console.log("📦 Orders from DB:", orders); // ✅
         res.json({ success: true, data: orders });
     } catch (error) {
-        console.log(error);
+        console.log("❌ Error fetching orders:", error);
         res.json({ success: false, message: "Error fetching orders" });
     }
-}
-
+};
 export {placeOrder, verifyOrder,userOrders,listOrders};

@@ -1,47 +1,157 @@
-.my-orders{
-    margin:  50px 0px;
+.my-orders {
+    margin: 50px 0px;
 }
 
-.my-orders .container{
+/* Orders container */
+.my-orders .container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
 }
 
-.my-orders-order{
+/* Individual order card */
+.my-orders-order {
     display: grid;
     align-items: center;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
     gap: 30px;
-    padding: 10px 20px;
-    border: 1px solid brown;
+    padding: 12px 20px;
+    border: 1px solid #d4a373;
+    background: #fffaf5;
+    border-radius: 8px;
     font-size: 14px;
     color: #454545;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
-.my-orders-order img{
+.my-orders-order:hover {
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+}
+
+.my-orders-order img {
     width: 50px;
-    
 }
 
-.my-orders-order p span{
+.my-orders-order p span {
     color: brown;
 }
 
-.my-orders-order p b{
+.my-orders-order p b {
     font-weight: 500;
     color: #454545;
 }
-.my-orders-order button{
-    padding: 12px 0px;
+
+.my-orders-order button {
+    padding: 10px 0px;
     border: none;
     background-color: #ffe1e1;
     color: #454545;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 13px;
+    transition: background 0.2s ease;
 }
 
+.my-orders-order button:hover {
+    background-color: #ffcccc;
+}
+
+/* ================= AI Recommendations Section ================= */
+.ai-recomm-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff8f0;
+    border-radius: 12px;
+    border: 1px solid #f0d5b5;
+}
+
+.ai-recomm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ai-recomm-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #5a3e2b;
+}
+
+.ai-recomm-header button {
+    background: #f0d5b5;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.ai-recomm-header button:hover {
+    background: #e2c19a;
+}
+
+.ai-recomm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.ai-recomm-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.15s ease;
+}
+
+.ai-recomm-card:hover {
+    transform: translateY(-2px);
+}
+
+.ai-recomm-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.ai-recomm-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.ai-recomm-card p {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 4px;
+}
+
+.ai-recomm-card button {
+    margin-top: 10px;
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.ai-recomm-card button:hover {
+    background: #e84345;
+}
+
+/* ================= Responsive ================= */
 @media (max-width: 900px) {
     .my-orders-order {
         grid-template-columns: 1fr 2fr 1fr;

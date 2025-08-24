@@ -1,0 +1,61 @@
+.ai-reco {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  border: 1px solid #eee;
+}
+
+.ai-reco__hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ai-reco__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.ai-reco__refresh {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  cursor: pointer;
+}
+.ai-reco__refresh:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.ai-reco__error {
+  color: #b00020;
+  background: #fdecec;
+  border: 1px solid #fac7c7;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.ai-reco__empty {
+  color: #555;
+  margin: 10px 0 6px;
+}
+
+.ai-reco__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.ai-reco__skeleton {
+  height: 140px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f1f1f1, #fafafa, #f1f1f1);
+  animation: shimmer 1.4s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
