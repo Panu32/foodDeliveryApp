@@ -9,6 +9,7 @@ import RecommendationCard from '../../components/AiRecomm/RecomCard';
 const MyOrders = () => {
     const { url, token, user } = useContext(StoreContext);
     const [data, setData] = useState([]);
+    if(token) console.log("User Token:", token);
 
     const fetchOrders = async () => {
         try {
@@ -18,7 +19,7 @@ const MyOrders = () => {
                 { headers: { token } }
             );
             setData(response.data.data);
-            console.log(response.data.data);
+            // console.log(response.data.data);
         } catch (error) {
             console.error("Error fetching orders:", error);
         }
@@ -56,11 +57,14 @@ const MyOrders = () => {
                 )}
             </div>
 
-            <AiRecomm userId={user?._id || "guest"} />
-
-
-            {/* ================= Recommendation Card ================= */}
+            {/* ================= Recommendation Section ================= */}
             <h2>Recommended For You</h2>
+
+            {/* ✅ Move AI chat here */}
+            <AiRecomm userId={user?._id} />
+
+            {/* Future Recommendation Cards */}
+            {/* 
             <RecommendationCard
                 name="Paneer Butter Masala"
                 reason="Because you love North Indian food"
@@ -68,12 +72,8 @@ const MyOrders = () => {
                 image="https://via.placeholder.com/150"
                 restaurant="Spice Hub"
                 onAddToCart={() => alert("Added to cart!")}
-
-                />
-
-
-
-
+            /> 
+            */}
         </div>
     );
 };

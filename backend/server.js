@@ -9,6 +9,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import orderRouter from "./src/routes/orderRoute.js";
 
+import router from "./src/routes/aiRoutes.js"
+
 // Setup __dirname in ES Module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +37,8 @@ app.use("/api/food", foodRouter);
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/ai", router); // ✅ AI Routes
+
 
 app.get("/", (req, res) => {
   res.send("API Working ✅");
