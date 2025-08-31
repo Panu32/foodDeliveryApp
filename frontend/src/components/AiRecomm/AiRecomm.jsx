@@ -1,55 +1,79 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AiRecomm = ({ userId }) => {
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+const AiRecomm = () => {
+  const [query, setQuery] = useState("");
+  const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!query.trim()) return;
+
+    setLoading(true);
+    setResponse("");
 
     try {
-      const response = await axios.post("http://localhost:4000/api/ai/chat", {
-        message: input,
-        userId,
+      const res = await axios.post("http://localhost:4000/api/ai/smart-search", {
+        query,
       });
 
-      const reply = response.data.reply;
-
-      setMessages((prev) => [...prev, { from: "user", text: input }]);
-      setMessages((prev) => [...prev, { from: "ai", text: reply }]);
-      setInput("");
+      setResponse(res.data.suggestion || "No matching food found.");
     } catch (error) {
-      console.error("AI Error:", error);
+      console.error("❌ AI search error:", error.response?.data || error.message);
+      setResponse(
+        error.response?.data?.error ||
+          error.response?.data?.suggestion ||
+          "⚠️ Something went wrong with Gemini AI."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (!userId) {
-    return (
-      <div className="ai-recomm">
-        <h3>AI Chat (Beta)</h3>
-        <p style={{ color: "red" }}>⚠️ Please log in to use the chat.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="ai-recomm">
-      <h3>AI Chat (Beta)</h3>
-      <div className="chat-box">
-        {messages.map((msg, index) => (
-          <p key={index} className={msg.from}>
-            <b>{msg.from === "user" ? "You:" : "AI:"}</b> {msg.text}
-          </p>
-        ))}
-      </div>
-      <input
-        type="text"
-        value={input}
-        placeholder="Ask me anything..."
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={handleSend}>Send</button>
+    <div style={{ padding: "1rem" }}>
+      <form onSubmit={handleSearch} style={{ display: "flex", gap: "10px" }}>
+        <input
+          type="text"
+          placeholder="Search food with AI..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          style={{
+            padding: "8px",
+            flex: 1,
+            border: "1px solid #ccc",
+            borderRadius: "6px",
+          }}
+        />
+        <button
+          type="submit"
+          style={{
+            padding: "8px 16px",
+            border: "none",
+            background: "#4CAF50",
+            color: "white",
+            borderRadius: "6px",
+            cursor: "pointer",
+          }}
+        >
+          {loading ? "Searching..." : "Search"}
+        </button>
+      </form>
+
+      {response && (
+        <div
+          style={{
+            marginTop: "1rem",
+            padding: "1rem",
+            background: "#f4f4f4",
+            borderRadius: "8px",
+          }}
+        >
+          <strong>AI Suggestion:</strong>
+          <p style={{ marginTop: "0.5rem" }}>{response}</p>
+        </div>
+      )}
     </div>
   );
 };

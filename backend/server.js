@@ -5,11 +5,10 @@ import connectDB from "./src/db/index.js";
 import foodRouter from "./src/routes/foodRoute.js";
 import userRouter from "./src/routes/userRoute.js";
 import cartRouter from "./src/routes/cartRoute.js";
+import orderRouter from "./src/routes/orderRoute.js";
+import aiRouter from "./src/routes/aiRoutes.js"; // ✅ AI Routes
 import path from "path";
 import { fileURLToPath } from "url";
-import orderRouter from "./src/routes/orderRoute.js";
-
-import router from "./src/routes/aiRoutes.js"
 
 // Setup __dirname in ES Module
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +19,7 @@ dotenv.config();
 
 // App config
 const app = express();
-const port = process.env.PORT || 4000;
+const port = 4000; // ✅ Fixed to 4000
 
 // Middleware
 app.use(express.json());
@@ -37,11 +36,11 @@ app.use("/api/food", foodRouter);
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
-app.use("/api/ai", router); // ✅ AI Routes
+app.use("/api/ai", aiRouter); // ✅ Gemini AI route
 
-
+// Root route
 app.get("/", (req, res) => {
-  res.send("API Working ✅");
+  res.send("✅ API Working (Food Delivery + Gemini AI Integrated)");
 });
 
 // Start server
